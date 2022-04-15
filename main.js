@@ -15,3 +15,20 @@ recognition.onresult = function (event) {
 
     document.getElementById("textbox").innerHTML = Content;
 }
+
+var SpeechRecognition = window.webkitSpeechRecognition;
+
+var recognition = new SpeechRecognition();
+
+function start() {
+    recognition.start();
+}
+
+recognition.onresult = function (event) {
+    console.log(event);
+
+    var Content = event.result[0][0].transcript;
+    console.log(Content);
+
+    document.getElementById("textbox").innerHTML = Content;
+}
